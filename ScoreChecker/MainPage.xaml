@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ScoreChecker.MainPage"
+             xmlns:vm="clr-namespace:ScoreChecker"
+             Shell.NavBarIsVisible="False">
+
+    <ContentPage.BindingContext>
+        <vm:ViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*" Grid.Row="0"/>
+            <RowDefinition Height="0.2*" Grid.Row="1"/>
+            <RowDefinition Height="0.2*" Grid.Row="2"/>
+            <RowDefinition Height="0.2*" Grid.Row="3"/>
+            <RowDefinition Height="0.2*" Grid.Row="4"/>
+            <RowDefinition Height="0.2*" Grid.Row="5"/>
+        </Grid.RowDefinitions>
+
+        <BoxView
+            Grid.Row="0"
+            BackgroundColor="WhiteSmoke"/>
+
+        <BoxView
+            Grid.Row="1"
+            BackgroundColor="White"/>
+
+        <BoxView
+            Grid.Row="2"
+            BackgroundColor="White"/>
+
+        <BoxView
+            Grid.Row="3"
+            BackgroundColor="White"/>
+
+        <BoxView
+            Grid.Row="4"
+            BackgroundColor="White"/>
+
+
+        <BoxView
+            Grid.Row="5"
+            BackgroundColor="LightGray"/>
+
+        <Label
+            Grid.Row="0"
+            Text="rnpn式成績チェッカー"
+            TextColor="Black"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            FontSize="30"
+            FontAttributes="Bold"/>
+
+
+
+        <!--点数入力するエリア-->
+        <Label
+            Grid.Row="1"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            FontAttributes="Bold"
+            TextColor="Black"
+            Text="前期中間"/>
+        <Entry
+            Grid.Row="1"
+            Text="{Binding EnterFirstScore}"
+            TextColor="Black"
+            BackgroundColor="LightGray"
+            Keyboard="Numeric"
+            HorizontalOptions="Center"
+            VerticalOptions="End"
+            MaxLength="3"
+            IsPassword="True"
+            MinimumWidthRequest="100"/>
+        
+        <Label
+            Grid.Row="2"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            FontAttributes="Bold"
+            TextColor="Black"
+            Text="前期期末"/>
+        <Entry
+            Grid.Row="2"
+            Text="{Binding EnterSecondScore}"
+            TextColor="Black"
+            BackgroundColor="LightGray"
+            Keyboard="Numeric"
+            HorizontalOptions="Center"
+            VerticalOptions="End"
+            MaxLength="3"
+            IsPassword="True"
+            MinimumWidthRequest="100"/>
+
+        <Label
+            Grid.Row="3"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            FontAttributes="Bold"
+            TextColor="Black"
+            Text="後期中間"/>
+        <Entry
+            Grid.Row="3"
+            Text="{Binding EnterThirdScore}"
+            TextColor="Black"
+            BackgroundColor="LightGray"
+            Keyboard="Numeric"
+            HorizontalOptions="Center"
+            VerticalOptions="End"
+            MaxLength="3"
+            IsPassword="True"
+            MinimumWidthRequest="100"/>
+
+        
+        
+        
+        <!--点数表示するエリア-->
+        <Button
+            Grid.Row="5"
+            Text="結果表示"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Command="{Binding ClickedViewResultCommand}"/>
+        
+        <Label
+            Grid.Row="4"
+            Text="{Binding ViewResult}"
+            TextColor="Black"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            FontSize="20"
+            FontAttributes="Bold"/>
+        <Label
+            Grid.Row="5"
+            Text="{Binding Description}"
+            TextColor="Black"
+            HorizontalOptions="Center"
+            VerticalOptions="Start"
+            FontSize="15"
+            FontAttributes="Bold"/>
+    </Grid>
+
+</ContentPage>
